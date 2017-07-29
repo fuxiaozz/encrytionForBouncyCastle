@@ -60,12 +60,12 @@ public class RSADemo {
 
         String content = "admin";
 
-        // 加密
+        // 使用公钥加密
         cipher.init(Cipher.ENCRYPT_MODE, rsaPublicKey, random);
         byte[] encryptData = cipher.doFinal(content.getBytes());
         System.out.println("加密信息 = " + Base64.toBase64String(encryptData));
 
-        // 解密
+        // 使用私钥解密
         cipher.init(Cipher.DECRYPT_MODE, rsaPrivateKey);
         byte[] decryptData = cipher.doFinal(encryptData);
         System.out.println("解密信息 = " + new String(decryptData));
